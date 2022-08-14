@@ -1,3 +1,4 @@
+
 body {
     margin: 0 auto;
     max-width: 50em;
@@ -11,11 +12,60 @@ body {
 
 }
 
-h1{
+header {
+    background-image: url("https://pbs.twimg.com/media/EhAwKERU4AAR8L6?format=jpg&name=4096x4096");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    line-height: 1.2;
+    max-width: none;
+    padding: 2vw 10em;
+    text-align: center;
+    margin: 0 auto;
+    color: aliceblue;
+  }
 
-}
+header img {
+    display: inline-block;
+    height: 120px;
+    vertical-align: top;
+    width: 140px;
+  }
 
 
 strong{
     color: rgb(198, 29, 29);  
 }
+
+code,
+pre {
+  background: #eee;
+}
+
+code {
+  padding: 2px 4px;
+  vertical-align: text-bottom;
+}
+
+pre {
+  padding: 1em;
+}
+
+a {
+    border: 1px solid #e81c4f;
+    border-radius: 290486px;
+    color: rgb(158, 87, 87);
+    font-size: 0.6em;
+    letter-spacing: 0.2em;
+    padding: 1em 2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: none 200ms ease-out;
+    transition-property: color, background;
+}
+
+a:hover{
+    background:  #e81c4f;
+    color: white
+}
+
