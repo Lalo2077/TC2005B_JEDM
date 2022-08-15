@@ -101,4 +101,19 @@ boton.onclick = () => {
         '<img src="media/nutria.jpeg" alt="Juan nos cuida">';
 }
 
+let Numero = prompt("Inserta un número: ")
+
+function tabla_cuadrados(){
+    let resultado = "<table>";
+    for (let i = 1; i <= Numero; i++){
+        resultado += "<tr>";
+        resultado += "<td>" + i + "</td>" + "<td>" + i*i + "</td>" + "<td>" + i*i*i + "</td>";
+        resultado += "</tr>"
+    }
+    resultado += "</table>";
+    return (resultado);
+}
+
+document.write("Ejercicio 1");
+document.write(tabla_cuadrados());
 
