@@ -98,17 +98,17 @@ const boton = document.getElementById("boton_imagen");
 boton.onclick = () => {
     console.log("Click!");
     document.getElementById("contenedor_imagen").innerHTML =
-        '<img src="media/nutria.jpeg" alt="Juan nos cuida">';
+        '<img src="media/nutria.jpeg" height = 500 width = 500 alt="Juan nos cuida">';
 }
 
 let Numero = prompt("Inserta un número: ")
 
 
-function tabla_cuadrados(){
+function tabla_cuadrados() {
     let resultado = "<table>";
     for (let i = 1; i <= Numero; i++){
         resultado += "<tr>";
-        resultado += "<td>" + i + "</td>" + "<td>" + i*i + "</td>" + "<td>" + i*i*i + "</td>";
+        resultado += "<td>" + i + "</td>" + "<td>" + i * i + "</td>" + "<td>" + i*i*i + "</td>";
         resultado += "</tr>"
     }
     resultado += "</table>";
@@ -120,9 +120,9 @@ document.write(tabla_cuadrados());
 
 var suma = 0;
 
-function aleatorio(){
-    var num1 = parseInt(Math.random()*100);
-    var num2 = parseInt(Math.random()*100);
+function aleatorio() {
+    var num1 = parseInt(Math.random() * 100);
+    var num2 = parseInt(Math.random() * 100);
 
     var suma = num1 + num2;
     
@@ -130,9 +130,9 @@ function aleatorio(){
     var respuesta = parseInt(prompt("¿Cual es la suma de " + num1 + " y " + num2 + "?"));
     var temp_final = Date.now();
 
-    var timer = (temp_final - temp_inicio)/1000;
+    var timer = (temp_final - temp_inicio) / 1000;
 
-    if (respuesta == suma){
+    if (respuesta == suma) {
         document.write("Correcto");
         document.write("<br>");
         document.write("Tardaste: " + + timer + " segundos");
@@ -148,24 +148,22 @@ document.write("<h1>Ejercicio 2</h1>");
 
 aleatorio();
 
-function contador(){
+function contador() {
     const numeros = [10,23,0,-4,6,-7,2,-10,0];
     var negativos = 0;
     var positivos = 0;
     var ceros = 0;
 
-    for(let i = 0; i <numeros.length; i++){
-        if (numeros[i]==0){
+    for(let i = 0; i <numeros.length; i++) {
+        if (numeros[i]==0) {
             ceros++;
-        }else if (numeros[i]<0){
+        }else if (numeros[i]<0) {
             negativos++;
-        }else{
+        }else {
             positivos++;
         }
     }
-    document.write("[");
-    document.write(numeros);
-    document.write("]");
+    document.write("[" + numeros + "]");
     document.write("<br/>Hay: " + positivos + " positivos, " + negativos + " negativos, " + ceros + " ceros");
     return null;
 }
@@ -173,6 +171,40 @@ function contador(){
 document.write("<h1>Ejercicio 3</h1>");
 contador();
 
-document.write("<br/>Ejercicio 4");
-document.write("<br/>Ejercicio 5");
-document.write("<br/>Ejercicio 6");
+function promedio() {
+    let arreglos = [[10,10,10,10,], [20,20], [30,30,30]];
+
+    let sum = 0;
+    let prom = 0;
+    let result = [];
+
+    for(let i = 0; i < arreglos.length;i++) {
+        sum = 0;
+        prom = 0;
+        for(let j = 0; j < arreglos[i].length; j++) {
+            sum += arreglos[i][j];
+        }
+        prom = sum / arreglos[i].length;
+        result.push(prom);
+    }
+    document.write("Arreglo de arreglos de números<br/>")
+    document.write(arreglos + "<br>" + "["+ result + "]");
+}
+
+document.write("<h1>Ejercicio 4</h1>");
+promedio();
+
+
+const NumNormal = prompt("Inserta un número que quieras que se invierta: ")
+
+function invertir(n) {
+    const convertAndReverse = n.toString().split("").reverse().join("");
+    return Number(convertAndReverse);
+}
+
+document.write("<h1>Ejercicio 5</h1>");
+document.write("Número normal: " + NumNormal + "<br>");
+document.write("Número inverso: " + invertir(NumNormal));
+
+document.write("<h1>Ejercicio 6</h1>");
+
