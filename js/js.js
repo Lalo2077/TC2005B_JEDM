@@ -91,7 +91,7 @@ menu.length = 2;
 console.log(menu);
 
 
-
+/////////////////////////////////////////////////////////////////////////
 //html dinámico con eventos 
 const boton = document.getElementById("boton_imagen");
 
@@ -102,6 +102,7 @@ boton.onclick = () => {
 }
 
 let Numero = prompt("Inserta un número: ")
+
 
 function tabla_cuadrados(){
     let resultado = "<table>";
@@ -114,6 +115,64 @@ function tabla_cuadrados(){
     return (resultado);
 }
 
-document.write("Ejercicio 1");
+document.write("<h1>Ejercicio 1</h1>");
 document.write(tabla_cuadrados());
 
+var suma = 0;
+
+function aleatorio(){
+    var num1 = parseInt(Math.random()*100);
+    var num2 = parseInt(Math.random()*100);
+
+    var suma = num1 + num2;
+    
+    var temp_inicio = Date.now();
+    var respuesta = parseInt(prompt("¿Cual es la suma de " + num1 + " y " + num2 + "?"));
+    var temp_final = Date.now();
+
+    var timer = (temp_final - temp_inicio)/1000;
+
+    if (respuesta == suma){
+        document.write("Correcto");
+        document.write("<br>");
+        document.write("Tardaste: " + + timer + " segundos");
+    }else{
+        document.write("Falso");
+        document.write("<br>");
+        document.write("Tardaste: " + + timer + " segundos");
+    }
+    return;
+}
+
+document.write("<h1>Ejercicio 2</h1>");
+
+aleatorio();
+
+function contador(){
+    const numeros = [10,23,0,-4,6,-7,2,-10,0];
+    var negativos = 0;
+    var positivos = 0;
+    var ceros = 0;
+
+    for(let i = 0; i <numeros.length; i++){
+        if (numeros[i]==0){
+            ceros++;
+        }else if (numeros[i]<0){
+            negativos++;
+        }else{
+            positivos++;
+        }
+    }
+    document.write("[");
+    document.write(numeros);
+    document.write("]");
+    document.write("<br/>Hay: " + positivos + " positivos, " + negativos + " negativos, " + ceros + " ceros");
+    return null;
+}
+
+document.write("<h1>Ejercicio 3</h1>");
+contador();
+
+document.write("<br/>Ejercicio 4");
+document.write("<br/>Ejercicio 5");
+document.write("<br/>Ejercicio 6");
