@@ -1,0 +1,25 @@
+h1 {
+    text-align: center;
+  }
+  
+  /*Centers the button*/
+  .btn-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /*Button styles*/
+  #btn {
+    border: none;
+    padding: 10px;
+    font-size: 1.3rem;
+    background-color: #003366;
+    color: white;
+    border-radius: 15%;
+    cursor: pointer;
+  }
+
+p.myP1 {
+    visibility: hidden;
+}

@@ -206,5 +206,7 @@ document.write("<h1>Ejercicio 5</h1>");
 document.write("Número normal: " + NumNormal + "<br>");
 document.write("Número inverso: " + invertir(NumNormal));
 
+
 document.write("<h1>Ejercicio 6</h1>");
+
 
