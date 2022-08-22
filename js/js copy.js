@@ -9,7 +9,7 @@ function feliz() {
     const contenedor = document.getElementById("contenedor_imagen");
     contenedor.innerHTML = '<img src="media/facha.jpg" alt="Fachero" width="200" height="180">';
     boton_cambio_animo.innerText = "Triste";
-    boton_cambio_animo.style.backgroundColor = "red"
+    boton_cambio_animo.style.backgroundColor = "#4db6ac"
     is_happy = true;
     
 
@@ -19,7 +19,7 @@ function triste() {
     const contenedor = document.getElementById("contenedor_imagen");
     contenedor.innerHTML = '<img src="media/triste.jpg" alt="Triste" width="200">';
     boton_cambio_animo.innerText = "Fachero";
-    boton_cambio_animo.style.backgroundColor = "green"
+    boton_cambio_animo.style.backgroundColor = "#4db6ac"
     is_happy = false;
 }
 
