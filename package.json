@@ -4,6 +4,7 @@
   "description": "Laboratorios A01735676",
   "main": "App.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo"
   },
   "repository": {
@@ -11,12 +12,18 @@
     "url": "git+https://github.com/Lalo2077/TC2005B_JEDM.git"
   },
   "keywords": [
-    "TC205B"
+    "TC2005B"
   ],
   "author": "José Eduardo Díaz Maldonado",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Lalo2077/TC2005B_JEDM/issues"
   },
-  "homepage": "https://github.com/Lalo2077/TC2005B_JEDM#readme"
+  "homepage": "https://github.com/Lalo2077/TC2005B_JEDM#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
