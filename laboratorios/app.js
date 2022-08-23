@@ -35,11 +35,18 @@ const { buffer } = require('stream/consumers');
 const server = http.createServer( (request, response) => {
     console.log(request.url);
 
-    if (request.url === "/hola") {
-        response.setHeader('Content-Type', 'text/html');
-        response.write("<!DOCTYPE html>");
-        response.write('<head><meta charset="UTF-8"></head>')
-        response.write("<h1>Hola desde Node<h1>");
+    if (request.url === "/casa") {
+        response.write('<!DOCTYPE html>');
+        response.write('<html lang="en"><head>');
+        response.write('<title>Laboratorio10_A01735676</title>');
+        response.write('<link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>')
+        response.write('</head><body>');
+        response.write('<header>');
+        response.write('<img id="logo" src="https://pbs.twimg.com/media/Fa2Z6LWXoAA8mVH?format=jpg&name=medium" alt="casa">');
+        response.write('<h1>La casa de las nutrias</h1>')
+        response.write('</header>')
+        response.write('<p> Hecho por Jose Eduardo Diaz Maldonado</p></header>');
+        response.write('<section><p> Bienvenido a la casa de las nutrias</br>');
         response.end();
     }else if (request.url === "/trivia" && request.method === "GET") {
         response.setHeader('Content-Type', 'text/html');
@@ -88,7 +95,8 @@ const server = http.createServer( (request, response) => {
         response.setHeader('Content-Type', 'text/html');
         response.write("<!DOCTYPE html>");
         response.write('<head><meta charset="UTF-8"></head>')
-        response.write("<h1>Error 404: El recurso solicitado no existe<h1>").end();
+        response.write("<h1>Error 404: El recurso solicitado no existe<h1>");
+        response.end();
     }
 
 });
