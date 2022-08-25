@@ -5,6 +5,10 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+const rutas_trivia = require('./routes/trivia.routes.js');
+
+app.use('/nutria',rutas_trivia);
+
 //Middleware
 app.use((request, response, next) => {
     console.log('Middleware!');
@@ -14,31 +18,6 @@ app.use((request, response, next) => {
 app.use((request, response, next) => {
     console.log('Otro middleware sin reiniciar!');
     next();
-});
-
-app.get('/trivia', (request, response, next) => {
-    let html = '<!DOCTYPE html>' +
-    '<head><meta charset="UTF-8"></head>' +
-    "<h1>Pregunta a la papu nutria quién va a ganar</h1>" +
-    '<form action="trivia" method="POST">' +
-    '<fieldset>' +
-    '<legend>Equipos</legend>' +
-    '<label for ="visitantes">visitantes<input type="text" name="visitante" id="visitante">' +
-    '<br/><br/>' +
-    '<label for ="local">local<input type="text" name="local" id="local">' +
-    '</fieldset>' +
-    '<input type="submit" value="Adivina">' +
-    '</form>';
-    response.send(html); 
-});
-
-app.post('/trivia', (request, response, next) => {
-    console.log(request.body);
-    if (Math.floor(Math.random() * 2) == 0) {
-        response.send('<h2>' + request.body.visitante + '</h2>');
-    }else{
-        response.send('<h2>' + request.body.local + '</h2>');
-    }
 });
 
 app.use('/casa/nutria', (request, response, next) => {
@@ -51,7 +30,8 @@ app.use('/casa', (request, response, next) => {
 
 app.use((request, response, next) => {
     console.log("El papu middleware");
-    response.send('¡Hola mundo!'); //Manda la respuesta
+    response.status(404);
+    response.send('Error 404: El recurso solicitado no existe'); //Manda la respuesta
 });
 
 

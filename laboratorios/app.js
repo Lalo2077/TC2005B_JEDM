@@ -39,31 +39,34 @@ const server = http.createServer( (request, response) => {
         response.write('<!DOCTYPE html>');
         response.write('<html lang="en"><head>');
         response.write('<title>Laboratorio10_A01735676</title>');
-        response.write('<link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>')
         response.write('</head><body>');
         response.write('<header>');
-        response.write('<img id="logo" src="https://pbs.twimg.com/media/Fa2Z6LWXoAA8mVH?format=jpg&name=medium" alt="casa">');
+        response.write('<img id="logo" src="https://pbs.twimg.com/media/Fa2Z6LWXoAA8mVH?format=jpg&name=medium" width="600" heigth= "400" alt="casa">');
         response.write('<h1>La casa de las nutrias</h1>')
         response.write('</header>')
         response.write('<p> Hecho por Jose Eduardo Diaz Maldonado</p></header>');
-        response.write('<section><p> Bienvenido a la casa de las nutrias</br>');
+        response.write('<section><p> Bienvenido a la casa de las nutrias</P></br>');
+        response.write('<a href=http://localhost:3000/bar> Ir al papu bar </a>');
+        response.write('')
         response.end();
-    }else if (request.url === "/trivia" && request.method === "GET") {
+
+    }else if (request.url === "/bar" && request.method === "GET") {
         response.setHeader('Content-Type', 'text/html');
         response.write("<!DOCTYPE html>");
-        response.write('<head><meta charset="UTF-8"></head>')
-        response.write("<h1>Pregunta a la papu nutria quién va a ganar</h1>");
-        response.write('<form action="trivia" method="POST">');
+        response.write('<head><meta charset="UTF-8"></head>');
+        response.write("<h1>¿Qué vas a querer el día de hoy?</h1>");
+        response.write('<form action="bar" method="POST">');
         response.write('<fieldset>');
-        response.write('<legend>Equipos</legend>');
-        response.write('<label for ="visitantes">visitantes<input type="text" name="visitante" id="visitante">');
-        response.write('<br/><br/>');
-        response.write('<label for ="local">local<input type="text" name="local" id="local">');
+        response.write('<legend>Menu: </legend>');
+        response.write('<p>Cerveza <br> Vino <br> Tequila <br> </p>')
+        response.write('<label for ="Orden">Quiero<input type="text" name="Orden" id="Orden">');
         response.write('</fieldset>');
-        response.write('<input type="submit" value="Adivina">');
-        response.write('</form>')
+        response.write('<input type="submit" value="Ordenar">');
+        response.write('</form>');
+        response.write('<br><br><a href=http://localhost:3000/casa> Volver a la casa de las nutrias </a>');
         response.end();
-    }else if (request.url === "/trivia" && request.method === "POST") {
+
+    }else if (request.url === "/bar" && request.method === "POST") {
 
         const datos = [];
         request.on('data', (dato) => {
@@ -73,18 +76,28 @@ const server = http.createServer( (request, response) => {
         return request.on('end', () => {
             const datos_completos = Buffer.concat(datos).toString();
             console.log(datos_completos);
-            const dato_visitante = datos_completos.split('&')[0].split('=')[1];
-            console.log(dato_visitante);
-            const dato_local = datos_completos.split('&')[1].split('=')[1];
-            console.log(dato_local);
+            const dato_orden = datos_completos.split('&')[0].split('=')[1];
+            console.log(dato_orden);
             response.setHeader('Content-Type', 'text/html');
             response.write("<!DOCTYPE html>");
             response.write('<head><meta charset="UTF-8"></head>')
-            response.write("<h1>El resultado es: </h1>");
-            if (Math.floor(Math.random() * 2) == 0) {
-                response.write('<h2>' + dato_visitante + '</h2>');
-            }else{
-                response.write('<h2>' + dato_local + '</h2>');
+            if (dato_orden === "Cerveza") {
+                response.write('<h1>Aquí tiene su ' + dato_orden + '</h1>');
+                response.write('<img src="https://lalicorera.com/img/products/Corona-extra.png" width="200" heigth= "200" alt="cerveza">');
+                response.write('<br><br><a href=http://localhost:3000/bar> Volver al papu bar </a>');
+            }else if(dato_orden === "Vino") {
+                response.write('<h1>Aquí tiene su ' + dato_orden + '</h1>');
+                response.write('<img src="https://pinamora.com/wp-content/uploads/2020/08/sandra-vino-blanco.png" width="200" heigth= "200" alt="vino">');
+                response.write('<br><br><a href=http://localhost:3000/bar> Volver al papu bar </a>');
+            }else if (dato_orden === "Tequila") {
+                response.write('<h1>Aquí tiene su ' + dato_orden + '</h1>');
+                response.write('<img src="https://www.donjulio.com/static/images/product-blanco.png" width="200" heigth= "200" alt="tequila">');
+                response.write('<br><br><a href=http://localhost:3000/bar> Volver al papu bar </a>');
+            }else {
+                response.write('<h1>No tenemos de ese hermano.</h1>');
+                response.write('<img src="https://pbs.twimg.com/media/FapRZItXgAMCxed?format=jpg&name=small" width="300" heigth= "300" alt="No tenemos">');
+                response.write('<br><br><a href=http://localhost:3000/bar> Volver al papu bar </a>');
+
             }
             
             return response.end();
@@ -98,7 +111,6 @@ const server = http.createServer( (request, response) => {
         response.write("<h1>Error 404: El recurso solicitado no existe<h1>");
         response.end();
     }
-
 });
 
 server.listen(3000);
