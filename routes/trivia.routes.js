@@ -2,33 +2,33 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/ruta', (request, response, next) => {
-    response.send('Respuesta de la ruta "/modulo/ruta"'); 
-});
 
-router.get('/trivia', (request, response, next) => {
+router.get('/bar', (request, response, next) => {
     let html = '<!DOCTYPE html>' +
     '<head><meta charset="UTF-8"></head>' +
-    "<h1>Pregunta a la papu nutria quién va a ganar</h1>" +
-    '<form action="trivia" method="POST">' +
+    "<h1>¿Qué vas a querer el día de hoy?</h1>" +
+    '<form action="bar" method="POST">' +
     '<fieldset>' +
-    '<legend>Equipos</legend>' +
-    '<label for ="visitantes">visitantes<input type="text" name="visitante" id="visitante">' +
-    '<br/><br/>' +
-    '<label for ="local">local<input type="text" name="local" id="local">' +
+    '<legend>Menu:</legend>' +
+    '<p>Cerveza <br> Vino <br> Tequila <br> </p>' +
+    '<label for ="Orden">Quiero<input type="text" name="Orden" id="Orden">' +
     '</fieldset>' +
-    '<input type="submit" value="Adivina">' +
-    '</form>';
+    '<input type="submit" value="Ordenar">' +
+    '</form>' +
+    '<br><img src="https://gastronomiaycia.republica.com/wp-content/uploads/2021/12/lista_bar_2021_paradise-680x447.jpg" width="400" heigth= "200" alt="papu bar">' +
+    '<br><br><a href=http://localhost:3000/info span style="color: green;"> <- Volver a la casa de las nutrias </a>';
     response.send(html); 
 });
 
-router.post('/trivia', (request, response, next) => {
+router.post('/bar', (request, response, next) => {
     console.log(request.body);
-    if (Math.floor(Math.random() * 2) == 0) {
-        response.send('<h2>El ganador será: ' 
-        + request.body.visitante + '</h2>');
-    }else{
-        response.send('<h2>El ganador será: ' + request.body.local + '</h2>');
+    if (request.body.Orden === "Cerveza") {
+        response.send('<h1>Aquí tiene su ' 
+        + request.body.Orden + '</h1>');
+
+    }else if(request.body.Orden === "Vino") {
+        response.send('<h1>Aquí tiene su ' 
+        + request.body.Orden + '</h1>');
     }
 });
 

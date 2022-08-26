@@ -94,7 +94,7 @@ const server = http.createServer( (request, response) => {
             const dato_orden = datos_completos.split('&')[0].split('=')[1];
             console.log(dato_orden);
 
-            filesystem.writeFileSync('pedidosPapuBar.txt', dato_orden); //el nombre del archivo es pedidosPapuBar.txt
+            filesystem.appendFile('pedidosPapuBar.txt', dato_orden + "\n", () => console.log("Orden recibida")); //el nombre del archivo es pedidosPapuBar.txt
             response.setHeader('Content-Type', 'text/html');
             response.write("<!DOCTYPE html>");
             response.write('<head><meta charset="UTF-8"></head>')
