@@ -23,3 +23,21 @@ h1 {
 p.myP1 {
     visibility: hidden;
 }
+
+b {
+  border: 1px solid #e81c4f;
+  border-radius: 290486px;
+  color: rgb(158, 87, 87);
+  font-size: 0.6em;
+  letter-spacing: 0.2em;
+  padding: 1em 2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: none 200ms ease-out;
+  transition-property: color, background;
+}
+
+b:hover{
+  background:  #e81c4f;
+  color: white
+}
