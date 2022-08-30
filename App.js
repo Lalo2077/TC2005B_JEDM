@@ -8,9 +8,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-const rutas_bar = require('./routes/trivia.routes.js');
+const rutas_casa = require('./routes/casa.routes.js');
+const rutas_bar = require('./routes/bar.routes.js');
+
 
 app.use('/papu',rutas_bar);
+app.use('/papu',rutas_casa);
+
 
 //Middleware
 app.use((request, response, next) => {
@@ -23,13 +27,10 @@ app.use((request, response, next) => {
     next();
 });
 
-app.use('/papu/welcome', (request, response, next) => {
-    response.send('¡Hola! desde la ruta "/casa/nutria"'); 
-});
-
 app.use('/casa', (request, response, next) => {
     response.send('¡Hola! desde la ruta "/casa"'); 
 });
+
 
 app.get('/info', (request, response, next) => {
     console.log(path.join(__dirname));
@@ -37,6 +38,7 @@ app.get('/info', (request, response, next) => {
     console.log(path.join(__dirname, '..', 'views', 'index.html'));
     response.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
+
 
 app.use((request, response, next) => {
     console.log("El papu middleware");

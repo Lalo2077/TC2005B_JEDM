@@ -1,3 +1,10 @@
-AguaAguaAguaTequila
+Agua
+Agua
+Agua
+Tequila
 Vino
 Tequila
+Cerveza
+Tequila
+Vino
+Agua
