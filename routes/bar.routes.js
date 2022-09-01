@@ -3,6 +3,8 @@ const path = require ('path');
 
 const router = express.Router();
 
+const clientes = [];
+
 router.use(express.static(path.join(__dirname, '..', 'public')));
 
 router.get('/bar', (request, response, next) => {
@@ -27,28 +29,45 @@ router.get('/bar', (request, response, next) => {
 
 router.post('/bar', (request, response, next) => {
     console.log(request.body);
-    /*
+    let cliente = '';
     if (request.body.Orden === "Cerveza") {
+        /*
         response.send('<h1>Aquí tiene su ' 
         + request.body.Orden + '</h1><br>' + 
         '<a href=http://localhost:3000/papu/bar span style="color: blue;"> <- Volver al papu bar </a>');
+        */
+        cliente = request.body.Orden;
 
     }else if(request.body.Orden === "Vino") {
+        /*
         response.send('<h1>Aquí tiene su ' 
         + request.body.Orden + '</h1><br>' + 
         '<a href=http://localhost:3000/papu/bar span style="color: blue;"> <- Volver al papu bar </a>');
+        */
+        cliente = request.body.Orden;
 
     }else if(request.body.Orden === "Tequila") {
+        /*
         response.send('<h1>Aquí tiene su ' 
         + request.body.Orden + '</h1><br>' + 
         '<a href=http://localhost:3000/papu/bar span style="color: blue;"> <- Volver al papu bar </a>');
+        */
+        cliente = request.body.Orden;
 
     }else {
+        /*
         response.send('<h1>No tenemos de eso hermano</h1><br>' +
         '<a href=http://localhost:3000/papu/bar span style="color: blue;"> <- Volver al papu bar </a>');
+        */
     }
-    */
-    response.sendFile(path.join(__dirname, '..', 'views', 'bar', 'orden.html'));
+    
+    console.log(cliente);
+    clientes.push(cliente);
+    response.render(path.join('bar', 'orden.ejs'), {
+        cliente: cliente,
+        clientes: clientes,
+    });
+
 });
 
 module.exports = router;

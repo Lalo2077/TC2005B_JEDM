@@ -1,0 +1,51 @@
+<%- include('../includes/head.ejs') %>   
+    
+    <nav>
+        <div class="nav-wrapper  indigo darken-3">
+        <a href="#" class="brand-logo center"></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        
+        </ul>
+        </div>
+    </nav>
+    <div class = "container">
+
+        <% if (cliente === "Cerveza") {%>
+            <h2>Aquí tiene su <%= cliente %></h2>
+            <img src="https://lalicorera.com/img/products/Corona-extra.png" 
+            width="200" heigth= "200" alt="cerveza">
+
+        <% } else if (cliente === "Vino") {%>
+            <h2>Aquí tiene su <%= cliente %></h2>
+            <img src="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/3711.png" 
+            width="100" heigth= "100" alt="vino">
+
+        <% } else if (cliente === "Tequila") {%>
+            <h2>Aquí tiene su <%= cliente %></h2>
+            <img src="https://i0.wp.com/distrigal.com/wp-content/uploads/2021/08/tequila-azteca1.png?fit=600%2C600&ssl=1" 
+            width="200" heigth= "200" alt="tequila">
+
+        <% } else {  %>
+            <h2>No tenemos de eso hermano</h2>
+            <img src="media/triste.jpg" 
+            width="200" heigth= "200" alt="triste">
+        <% } %>
+        
+
+
+        <% if (clientes.length > 0) { %>
+            <div class="collection">
+                <% for (let g of clientes) { %>
+                    
+                    <a href="#!" class="collection-item"><%= g %></a>
+                <% } %>
+                </div>
+        <% } else { %>
+            <h2>No hay ordenes</h2>
+        <% } %>  
+
+        <br><a href=http://localhost:3000/papu/bar span style="color: rgb(0, 11, 128);"> <- Volver al papu bar </a>
+
+    </div>
+
+<%- include('../includes/foot.ejs') %>

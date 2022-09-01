@@ -52,18 +52,40 @@ router.get('/Preguntas', (request, response, next) => {
     '<h1>Preguntas a responder</h1>' +
     '<p>Describe el arcivo package.json: </p>' +
     '<h3>name</h3>' +
+    '<p>Es el nombre principal del paquete.</p>' +
+    '<p>El nombre debe ser menor o por lo menos iguala 214 caracteres.</p>' +
     '<h3>version</h3>' +
+    '<p>Es la version que usa el paquete.</p>' +
     '<h3>description</h3>' +
+    'Es de ayuda tener una descripción para que las personas puedan' +
+    'conocer el paquete.</p>' +
     '<h3>main</h3>' +
+    '<p>Es un modulo ID, el cual es la principal entrada al programa</p>' +
     '<h3>scripts</h3>' +
+    '<p>Es un diccionario que contiene comandos de scripts que se usan' +
+    'en diferentes instancias del paquete.</p>' +
     '<h3>repository</h3>' +
-    '<h3>keywords</h3>' +
+    '<p>Especifica el lugar en donde el código se encuenta, hay diferentes' +
+    'herramientas como Github o Bitbucket que se pueden usar para guardar' +
+    'repositorios de manera remota.</p>'
+    '<h3>keywords</h3>' + 
+    '<p>es un arreglo de strings, que ayuda a las personas a encontrar tu paquete' +
+    'como esta listado en npm search.</p>' +
     '<h3>Authors</h3>' +
     '<h3>license</h3>' +
+    '<p>La licencia específica a las personas que es lo que tienen permitido usar y'+
+    'las restricciones elegidas.</p>' +
     '<h3>bugs</h3' +
+    '<p>Es un url a la sección de problemas del projecto donde se pueden guiar para' +
+    'resolver problemas, tambien se puede colocar un email donde se pueda reportar errores.</p>' +
     '<h3>homepage</h3>' +
+    '<p>Se coloca el url de la pagina principal del proyecto.</p>' +
     '<h3>devDependencies</h3>' +
+    '<p>Sirve tener esto para que puedan descargar y usar los modulos que se usan en el proyecto' +
+    'en sus programas.</p>' +
     '<h3>dependencies</h3>' +
+    '<p>Son las versiones de los modulos que se usan en el proyecto, las cuales pueden ser usadas' +
+    'por otras personas en sus programas' + 
     '<br><br><a href=http://localhost:3000/papu/casa span style="color: green;"> <- Volver a la casa de las nutrias </a>' +
     '</body>';
     response.send(html); 
