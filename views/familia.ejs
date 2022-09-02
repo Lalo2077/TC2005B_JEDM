@@ -1,0 +1,12 @@
+<%- include('../includes/head.ejs') %>
+    <h1>Lista de equipos</h1>
+        <% if (equipos.length > 0) { %>
+            <div class="collection">
+                <% for (let e of equipos) { %>
+                    <a href="#!" class="collection-item"><%= e.nombre %></a>
+                <% } %>
+                </div>
+        <% } else { %>
+            <h2>No hay equipos registrados</h2>
+        <% } %>  
+    <%- include('../includes/foot.ejs') %>

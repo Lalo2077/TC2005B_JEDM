@@ -1,7 +1,9 @@
 const express = require('express');
+const path = require ('path');
 
 const router = express.Router();
 
+router.use(express.static(path.join(__dirname, '..', 'public')));
 
 router.get('/casa', (request, response, next) => {
     let html = '<!DOCTYPE html>' +
@@ -28,6 +30,7 @@ router.get('/casa', (request, response, next) => {
 
 
 router.get('/consultorio', (request, response, next) => {
+    /*
     let html = '<!DOCTYPE html>' +
     '<html lang="en"><head>' +
     '<title>Laboratorio11_A01735676</title>' +
@@ -41,9 +44,13 @@ router.get('/consultorio', (request, response, next) => {
     '<br><br><a href=http://localhost:3000/papu/casa span style="color: green;"> <- Volver a la casa de las nutrias </a>' +
     '</body>';
     response.send(html); 
+    */
+    console.log(path.join(__dirname, '..', 'views', 'consultorio.html'));
+    response.sendFile(path.join(__dirname, '..', 'views', 'consultorio.html'));
 });
 
 router.get('/Preguntas', (request, response, next) => {
+    /*
     let html = '<!DOCTYPE html>' +
     '<html lang="en"><head>' +
     '<title>Laboratorio11_A01735676</title>' +
@@ -89,6 +96,11 @@ router.get('/Preguntas', (request, response, next) => {
     '<br><br><a href=http://localhost:3000/papu/casa span style="color: green;"> <- Volver a la casa de las nutrias </a>' +
     '</body>';
     response.send(html); 
+    */
+    
+    response.render(path.join('Preguntas.ejs'));
 });
+
+
 
 module.exports = router;
