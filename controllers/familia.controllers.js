@@ -1,5 +1,5 @@
 const path = require('path');
-const nutria = require('../models/familia.model.js');
+const nutria = require('../models/familia.model');
 
 exports.getNutrias = (request, response, next) => {
 
