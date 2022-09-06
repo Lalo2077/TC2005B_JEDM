@@ -1,0 +1,58 @@
+<%- include('../includes/head.ejs') %>  
+
+<body class="background lime lighten-5">
+    
+    <header><img id="logo" src="https://pbs.twimg.com/media/E7WWzFmXsAMyNIr?format=jpg&name=large" width="100%" height="300" alt="bar"></header>
+    <nav>
+      <div class="nav-wrapper  green accent-2">
+      <a class="btn green accent-4 left-align" href="http://localhost:3000/papu/creador">Regresar a la montaña</a>
+      <a href="#" class="brand-logo center">La montaña de la creación</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+         
+      </ul>
+      </div>
+    </nav>
+
+    
+    <div class="container">
+      <br>
+      <div class="row">
+        <% if (nutrias.length > 0) { %>
+            <% for (let nutria of nutrias) { %>
+                <div class="col l3 m4 s12">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="https://cdn-raw.modrinth.com//data/wCAGNZPl/icon.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4"><%= nutria.nombre %></span>
+
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><%= nutria.nombre %><i class="material-icons right">close</i></span>
+                            <p>Hola <%= nutria.nombre %></p>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        <% } else { %>
+            <h1>Ahorita no hay nutrias</h1>
+        <% } %>  
+        </div>
+
+        
+      <br>
+      <footer class="page-footer  green accent-2">
+        <div class="container">
+            
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+            <p>A01735676<br/>
+            © Tecnológico de Monterrey</p>
+            </div>
+        </div>
+    </footer>
+
+
+<%- include('../includes/foot.ejs') %>

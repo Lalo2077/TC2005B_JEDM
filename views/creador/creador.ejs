@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>  
+
+<body class="background lime lighten-5">
+    
+    <header><img id="logo" src="https://pbs.twimg.com/media/E7WWzFmXsAMyNIr?format=jpg&name=large" width="100%" height="300" alt="bar"></header>
+    <nav>
+      <div class="nav-wrapper  green accent-2">
+      <a class="btn green accent-4 left-align" href="http://localhost:3000/info">Regresar a casa</a>
+      <a href="#" class="brand-logo center">La montaña de la Creación</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+         
+      </ul>
+      </div>
+    </nav>
+
+    
+    <div class="container">
+
+        <h3>Crea tu propia nutria</h3>
+        <form action="creador" method="POST">
+          <fieldset>
+            <label for ="nombre">Nombre<input type="text" name="nombre" id="nombre">
+          </fieldset>
+          <button class="btn green accent-4 waves-effect waves-light" type="submit" name="action">Crear
+          </button>
+        </form>
+    
+      <br>
+      <footer class="page-footer  green accent-2">
+        <div class="container">
+            
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+            <p>A01735676<br/>
+            © Tecnológico de Monterrey</p>
+            </div>
+        </div>
+    </footer>
+    
+
+<%- include('../includes/foot.ejs') %>

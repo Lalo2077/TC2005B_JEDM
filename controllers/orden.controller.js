@@ -2,6 +2,8 @@ const path = require('path');
 
 const Cliente = require('../models/orden.model');
 
+const Nutria = require('../models/creador.model');
+
 exports.getOrden = (request, response, next) => {
     response.sendFile(path.join(__dirname, '..', 'views','bar','bar.html'));
 }
@@ -36,3 +38,31 @@ exports.postOrden = (request, response, next) => {
 
 };
 
+exports.getConsultorio = (request, response, next) => {
+    response.render(path.join(__dirname, '..', 'views','Consultorio.ejs'));
+}
+
+exports.getPreguntas = (request, response, next) => {
+    response.render(path.join(__dirname, '..', 'views','Preguntas.ejs'));
+}
+
+exports.getCreador = (request, response, next) => {
+    response.render(path.join(__dirname, '..', 'views','creador','creador.ejs'));
+}
+
+exports.postCreador = (request, response, next) => {
+    console.log(request.body);
+    let nombreNutrias = '';
+    
+    nombreNutrias = request.body.nombre;
+
+    console.log(Nutria);
+    const unaNutria = new Nutria(nombreNutrias);
+    unaNutria.save();
+
+    response.render(path.join('creador', 'nutrias.ejs'), {
+        nutria: unaNutria.nombre,
+        nutrias: Nutria.fetchAll(),
+    });
+
+};

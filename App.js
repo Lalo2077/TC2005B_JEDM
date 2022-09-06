@@ -11,8 +11,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-const rutas_casa = require ('./routes/casa.routes.js');
-app.use('/papu',rutas_casa);
 
 const rutas_bar = require('./routes/bar.routes.js');
 app.use('/papu',rutas_bar);
