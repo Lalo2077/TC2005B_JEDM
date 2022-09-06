@@ -1,4 +1,6 @@
-const nutrias = [];
+const db = require('../util/database');
+
+//const nutrias = [];
 
 module.exports = class Nutria {
 
@@ -7,11 +9,11 @@ module.exports = class Nutria {
     }
 
     save() {
-        nutrias.push(this);
+        return db.execute('INSERT INTO nutrias (nombre) VALUES (?)', [this.nombre]);
     }
 
 
     static fetchAll() {
-        return nutrias;
+        return db.execute('SELECT * FROM nutrias');
     }
 }

@@ -46,8 +46,24 @@ exports.getPreguntas = (request, response, next) => {
     response.render(path.join(__dirname, '..', 'views','Preguntas.ejs'));
 }
 
+
+/*
 exports.getCreador = (request, response, next) => {
-    response.render(path.join(__dirname, '..', 'views','creador','creador.ejs'));
+    //response.render(path.join(__dirname, '..', 'views','creador','creador.ejs'));
+
+    Nutria.fetchAll()
+        .then(([rows, fieldData]) => {
+            console.log("Nutrias: ");
+            console.log(rows);
+            response.render(path.join(__dirname, '..', 'views','creador','creador.ejs'), {
+                nutrias: rows,
+            });
+        })
+
+        .catch(err => {
+            console.log(err);
+            response.render('error.ejs');
+        })
 }
 
 exports.postCreador = (request, response, next) => {
@@ -66,3 +82,5 @@ exports.postCreador = (request, response, next) => {
     });
 
 };
+
+*/

@@ -15,8 +15,8 @@ router.get('/consultorio', ordenController.getConsultorio);
 
 router.get('/preguntas', ordenController.getPreguntas);
 
-router.get('/creador', ordenController.getCreador);
+//router.get('/creador', ordenController.getCreador);
 
-router.post('/creador', ordenController.postCreador);
+//router.post('/creador', ordenController.postCreador);
 
 module.exports = router;

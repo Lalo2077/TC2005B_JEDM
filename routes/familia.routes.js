@@ -3,8 +3,12 @@ const path = require ('path');
 
 const router = express.Router();
 
-const familiaController = require('../controllers/familia.controllers.js');
+const creadorController = require('../controllers/creador.controllers.js');
 
-router.get('/Familia', familiaController.getNutrias);
+router.get('/creador', creadorController.getNewNutria);
+
+router.post('/creador', creadorController.postNewNutria);
+
+router.get('/', creadorController.getNutrias);
 
 module.exports = router;
