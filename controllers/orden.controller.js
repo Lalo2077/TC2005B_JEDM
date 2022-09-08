@@ -2,13 +2,32 @@ const path = require('path');
 
 const Cliente = require('../models/orden.model');
 
-const Nutria = require('../models/creador.model');
+//const Nutria = require('../models/creador.model');
 
 exports.getOrden = (request, response, next) => {
-    response.sendFile(path.join(__dirname, '..', 'views','bar','bar.html'));
-}
+
+    let cookie = 0;
+
+    try {
+        cookie = request.get('Cookie').split('=')[1];
+    } catch (e) {
+        console.log(e);
+    }
+
+    console.log(cookie);
+
+    response.render(path.join(__dirname, '..', 'views','bar','bar.ejs'), {
+        clicks: cookie,
+    });
+};
 
 exports.postOrden = (request, response, next) => {
+    
+    let clicks = request.get('Cookie') ? request.get('Cookie').split('=')[1] : 0;
+    clicks++;
+    response.setHeader('Set-Cookie', 'numero_clicks=' + clicks + "; HttpOnly=true'");
+    
+    
     console.log(request.body);
     let nombreCliente = '';
     if (request.body.Orden === "Cerveza") {
@@ -34,6 +53,7 @@ exports.postOrden = (request, response, next) => {
     response.render(path.join('bar', 'orden.ejs'), {
         cliente: unCliente.nombre,
         clientes: Cliente.fetchAll(),
+        Clicks: clicks,
     });
 
 };

@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const session = require('express-session');
 
 const app = express();
 
@@ -11,6 +12,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+app.use(session({
+    secret: '{sdsdaddadffasfafafafasfd}',
+    resave: false,
+    saveUninitialized: false,
+}))
 
 const rutas_bar = require('./routes/bar.routes.js');
 app.use('/papu',rutas_bar);

@@ -6,7 +6,7 @@ exports.getNutrias = (request, response, next) => {
     Nutria.fetchAll()
         .then(([rows, fieldData]) => {
             console.log(rows);
-            response.render(path.join('creador', 'creador.ejs'), {
+            response.render(path.join('creador', 'nutrias.ejs'), {
                 nutrias: rows,
             });
         })
