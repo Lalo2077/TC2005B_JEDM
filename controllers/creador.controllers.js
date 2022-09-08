@@ -28,14 +28,7 @@ exports.postNewNutria = (request, response, next) => {
     const nutria = new Nutria(request.body.nombre);
     nutria.save()
         .then(() => {
-            Nutria.fetchAll()
-                .then(([rows, fieldData]) => {
-                    console.log("Nutrias: ");
-                    console.log(rows);
-                    response.render(path.join(__dirname, '..', 'views', 'creador','nutrias.ejs'), {
-                        nutrias: rows,
-                    })
-            });
+            response.redirect('/papu/');
         })
         .catch(err => {
             console.log(err);

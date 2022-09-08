@@ -6,27 +6,25 @@ const Cliente = require('../models/orden.model');
 
 exports.getOrden = (request, response, next) => {
 
-    let cookie = 0;
+    console.log(request.cookies);
 
-    try {
-        cookie = request.get('Cookie').split('=')[1];
-    } catch (e) {
-        console.log(e);
-    }
+    const numero_clicks = request.cookies.numero_clicks ? request.cookies.numero_clicks : 0;
 
-    console.log(cookie);
+    const ultima_orden = request.session.ultima_orden ? request.session.ultima_orden : false;
 
     response.render(path.join(__dirname, '..', 'views','bar','bar.ejs'), {
-        clicks: cookie,
+        clicks: request.cookies.numero_clicks ? request.cookies.numero_clicks : numero_clicks,
+        ultima_orden: ultima_orden,
     });
 };
 
 exports.postOrden = (request, response, next) => {
     
+    /*
     let clicks = request.get('Cookie') ? request.get('Cookie').split('=')[1] : 0;
     clicks++;
     response.setHeader('Set-Cookie', 'numero_clicks=' + clicks + "; HttpOnly=true'");
-    
+    */
     
     console.log(request.body);
     let nombreCliente = '';
@@ -50,10 +48,20 @@ exports.postOrden = (request, response, next) => {
     const unCliente = new Cliente(nombreCliente);
     unCliente.save();
 
+    request.session.ultima_orden = unCliente;
+
+    const numero_clicks = request.cookies.numero_clicks ? Number(request.cookies.numero_clicks) + 1 : 1;
+
+    response.cookie("numero_clicks" , numero_clicks, {
+        httpOnly: true,
+    })
+
+    console.log(request.cookies);
+
     response.render(path.join('bar', 'orden.ejs'), {
         cliente: unCliente.nombre,
         clientes: Cliente.fetchAll(),
-        Clicks: clicks,
+        Clicks: numero_clicks,
     });
 
 };
