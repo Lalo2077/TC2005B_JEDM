@@ -47,7 +47,16 @@
             <h2>No hay ordenes</h2>
         <% } %>  
 
-        <h4>Parcenutria ha atendido a <%= Clicks %> clientes.</h4>
+        <%if (Clicks > 0) { %>
+            <%if (Clicks > 1) { %>
+                <h4>Parcenutria ha atendido a <%= Clicks %> clientes.</h4>
+             <% } else { %>
+                <h4>Parcenutria ha atendido a <%= Clicks %> cliente.</h4>
+            <% } %>
+        <% } else { %>
+            <h4>Parcenutria no ha atendido a nadie</h4>
+        <% } %>
+        
     </div>
 
 <%- include('../includes/foot.ejs') %>

@@ -1,3 +1,57 @@
 <%- include('../includes/head.ejs') %>
+<body class="yellow-text text-darken-2 background grey darken-4 ">
+    
+    <header><img id="logo" src="https://gastronomiaycia.republica.com/wp-content/uploads/2021/12/lista_bar_2021_paradise-680x447.jpg" width="100%" height="300" alt="bar"></header>
+    <nav>
+      <div class="nav-wrapper  pink darken-4">
+      <a class="btn pink darken-2 left-align" href="http://localhost:3000/info">Regresar a casa</a>
+      <a href="#" class="brand-logo center"><i class="material-icons">local_bar</i>Papu Bar</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/user/logout">Salir</a></li>
+         
+      </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+        <div>
+            <br><br>
+            <%if (clicks > 6) { %>
+                <%if (clicks > 7) { %>
+                    <img src="https://pbs.twimg.com/media/FZppqvKXoAAaXmG.png" width="250" heigth= "250" 
+                    alt="JuanesNutria">
+                    <a onclick="M.toast({html: 'HOLA, soy JuanesNutria y sere tu Bartender por el resto de la noche', classes: 'rounded'})" 
+                    class="btn-floating"><i class="material-icons red">more_horiz</i></a>
+                <br>
+                <% } else if (clicks > 6) { %>
+                    <img src="https://pbs.twimg.com/media/FapNXDvXgAYzuQx?format=jpg&name=small" width="250" heigth= "250" 
+                    alt="cambio de Bartender">
+                    <a onclick="M.toast({html: 'Voy a tomarme un descanso, mi amigo JuanesNutria me va a cubrir', classes: 'rounded'})" 
+                    class="btn-floating"><i class="material-icons blue">more_horiz</i></a>
+                <br>
+                <% } %>
+            <% } else { %>
+                <img src="https://pbs.twimg.com/media/FaZXrDPWAAEiXpz.jpg:small" width="250" heigth= "250" 
+                alt="parcetender">
+                <a onclick="M.toast({html: 'Hola, Soy parcenutria y sere tu Bartender, estoy iniciando mi noche :D', classes: 'rounded'})" 
+                class="btn-floating"><i class="material-icons blue">more_horiz</i></a>
+                <br>
+            <% } %>
+        </div>
+    </div>
+
 <%- include('../includes/bar.form.ejs') %> 
+
+<footer class="page-footer  pink darken-4">
+    <div class="container">
+        
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+        <p>A01735676<br/>
+        © Tecnológico de Monterrey</p>
+        </div>
+    </div>
+</footer>
+
 <%- include('../includes/foot.ejs') %> 

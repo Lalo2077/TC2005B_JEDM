@@ -26,6 +26,9 @@ app.use('/papu',rutas_bar);
 const rutas_familia = require('./routes/familia.routes.js');
 app.use('/papu', rutas_familia);
 
+const rutas_user = require('./routes/user.routes.js');
+app.use('/user', rutas_user);
+
 app.get('/info', (request, response, next) => {
     console.log(path.join(__dirname));
     console.log(path.join(__dirname, '..'));
