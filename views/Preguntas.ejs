@@ -80,6 +80,30 @@
 
               </span></div>
             </li>
+            <li>
+              <div class="collapsible-header black-text">Laboratorio 17</div>
+              <div class="collapsible-body"><span>
+                <h5>¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</h5>
+                <p class="white-text">La ventaja de escribirlo en la capa del Modelo es que al modificar 
+                  datos y funciones en SQL solamente se modifica en el modelo, ahorrandonos el reescribir
+                  código en todos los lugares donde se usan estas consultas SQL.
+                </p>
+
+                <h5>¿Qué es SQL injection y cómo se puede prevenir?</h5>
+                <p class="white-text"> Es una forma de ataque la cual puede resultar en ataques que afecten
+                  a los datos dentro de la base de datos en SQL.
+                  <br>
+                  Para prevenirlo se deben hacer consultas parametrizadas y tener validación de los inputs 
+                  dentro del código.
+                </p>
+
+                <h5>Referencias</h5>
+
+                <a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">
+                SQL Injection Prevention: Cheat Sheet</a><br>
+
+              </span></div>
+            </li>
 
 
 <%- include('../views/includes/foot.ejs') %>
