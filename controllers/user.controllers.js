@@ -24,3 +24,4 @@ exports.logout = (request, response, next) => {
         response.redirect('/papu/bar');
     });
 };
+

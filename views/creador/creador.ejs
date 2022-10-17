@@ -17,9 +17,15 @@
     <div class="container">
 
         <h3>Crea tu propia nutria</h3>
-        <form action="creador" method="POST">
+        <% if (nutrias == "") { %>
+          <form action="/papu/creador" method="POST" enctype="multipart/form-data">
+        <% } else { %>
+          <form action="/papu/edit" method="POST">
+        <% } %>
+
           <fieldset>
             <label for ="nombre">Nombre<input type="text" name="nombre" id="nombre">
+            <input type="file" name="archivo">
           </fieldset>
           <button class="btn green accent-4 waves-effect waves-light" type="submit" name="action">Crear
           </button>

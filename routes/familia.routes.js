@@ -11,4 +11,8 @@ router.post('/creador', creadorController.postNewNutria);
 
 router.get('/', creadorController.getNutrias);
 
+router.get('/editarNutria/:id', creadorController.getEditNutria);
+
+router.post('/editarNutria', creadorController.postEditNutria);
+
 module.exports = router;

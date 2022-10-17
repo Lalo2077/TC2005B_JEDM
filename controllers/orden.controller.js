@@ -1,8 +1,8 @@
 const path = require('path');
 
-const Cliente = require('../models/orden.model');
+//const Cliente = require('../models/orden.model');
 
-//const Nutria = require('../models/creador.model');
+const Nutria = require('../models/creador.model');
 
 exports.getOrden = (request, response, next) => {
 
@@ -75,7 +75,7 @@ exports.getPreguntas = (request, response, next) => {
 }
 
 
-/*
+
 exports.getCreador = (request, response, next) => {
     //response.render(path.join(__dirname, '..', 'views','creador','creador.ejs'));
 
@@ -111,4 +111,3 @@ exports.postCreador = (request, response, next) => {
 
 };
 
-*/
